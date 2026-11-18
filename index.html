@@ -1,0 +1,1594 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CỔNG THÔNG TIN ĐIỆN TỬ ĐOÀN TNCS HỒ CHÍ MINH XÃ MƯỜNG LẦM - TỈNH SƠN LA</title>
+    
+    <!-- Favicon Huy hiệu Đoàn chính thức -->
+    <link rel="icon" type="image/png" href="assets/logo-doan.png">
+    <link rel="apple-touch-icon" href="assets/logo-doan.png">
+
+    <!-- Mô tả SEO & Mạng xã hội -->
+    <meta name="description" content="Cổng thông tin điện tử chính thức của Đoàn TNCS Hồ Chí Minh xã Mường Lầm, tỉnh Sơn La. Cập nhật tin tức hoạt động, đăng ký tình nguyện, tập huấn AI, kết nối thanh niên xa quê và tài liệu sinh hoạt chi đoàn.">
+    <meta name="theme-color" content="#0054A6">
+
+    <!-- Biểu tượng FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Tệp định kiểu CSS chính (Tối ưu chuẩn Cổng thông tin, nhẹ, mượt trên 3G/4G) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 1. THANH TIỆN ÍCH TRÊN CÙNG & TRỢ NĂNG -->
+    <aside class="topbar" aria-label="Thanh công cụ trợ năng">
+        <div class="container topbar-content">
+            <div class="topbar-badge">
+                <img src="assets/logo-doan.png" alt="Huy hiệu Đoàn" class="topbar-mini-logo" loading="lazy" onerror="this.style.display='none'">
+                <span>CỔNG THÔNG TIN ĐIỆN TỬ ĐOÀN TNCS HỒ CHÍ MINH <span class="whitespace-nowrap">XÃ MƯỜNG LẦM</span> • <span class="whitespace-nowrap">TỈNH SƠN LA</span></span>
+            </div>
+            <div class="topbar-controls">
+                <button class="btn-ctrl" id="toggle-data-saver" title="Bật/Tắt chế độ tiết kiệm dữ liệu cho mạng di động yếu">
+                    <i class="fas fa-bolt"></i> <span>Tiết kiệm 3G/4G</span>
+                </button>
+                <button class="btn-ctrl" id="toggle-font-zoom" title="Tăng cỡ chữ để bà con và đoàn viên dễ đọc trên điện thoại">
+                    <i class="fas fa-font"></i> <span>Cỡ chữ lớn</span>
+                </button>
+                <a href="tel:0354442054" class="btn-ctrl" style="text-decoration:none;">
+                    <i class="fas fa-phone-alt"></i> <span>Hotline: 035.444.2054</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 2. THANH BÁO ĐỘNG & BẢN TIN NHANH (NEWS TICKER) -->
+    <div class="alert-ticker" role="region" aria-label="Bản tin thông báo nhanh">
+        <div class="container ticker-inner">
+            <span class="ticker-label"><i class="fas fa-bullhorn"></i> Bản tin nhanh</span>
+            <div class="ticker-text">
+                <strong>THÔNG BÁO TỪ ĐOÀN XÃ:</strong> Triển khai chiến dịch "Xuân ấm bản Mường 2026", tiếp nhận ý kiến đóng góp của thanh niên xa quê và cảnh giác tuyệt đối với bẫy lừa đảo cài app giả mạo VNeID! Hotline hỗ trợ: <strong>035.444.2054</strong>.
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. HEADER & THANH ĐIỀU HƯỚNG ĐỒNG BỘ 7 PHÂN HỆ -->
+    <header class="main-header" role="banner">
+        <div class="container header-inner">
+            <div class="brand-wrapper">
+                <a href="#home" class="brand-logo-link" title="Đoàn TNCS Hồ Chí Minh xã Mường Lầm, tỉnh Sơn La">
+                    <div class="brand-logo-wrapper">
+                        <img src="assets/logo-doan.png" alt="Huy hiệu Đoàn TNCS Hồ Chí Minh" class="brand-logo-img object-cover" loading="eager" onerror="handleImgError(this)">
+                    </div>
+                </a>
+                <div class="brand-text">
+                    <h1><span class="whitespace-nowrap">ĐOÀN XÃ</span> <span class="whitespace-nowrap">MƯỜNG LẦM</span></h1>
+                    <p>CỔNG THÔNG TIN ĐIỆN TỬ • <span class="brand-location whitespace-nowrap">TỈNH SƠN LA</span></p>
+                </div>
+            </div>
+
+            <!-- Nút mở Menu trên điện thoại -->
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Mở menu điều hướng">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Menu chính gồm 7 phân hệ cốt lõi -->
+            <nav class="main-nav" id="main-nav" role="navigation" aria-label="Menu chính">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li><a href="#news-section" class="nav-link"><i class="far fa-newspaper"></i> Tin tức & Hoạt động</a></li>
+                    <li><a href="#proofs-section" class="nav-link"><i class="fas fa-clipboard-check"></i> Minh chứng 2026</a></li>
+                    <li><a href="#campaigns-section" class="nav-link"><i class="fas fa-hands-helping"></i> Đăng ký Tình nguyện</a></li>
+                    <li><a href="#ai-training" class="nav-link"><i class="fas fa-robot"></i> Tập huấn AI</a></li>
+                    <li><a href="#digital-solutions" class="nav-link"><i class="fas fa-network-wired"></i> Kết nối Thanh niên</a></li>
+                    <li><a href="#monthly-docs" class="nav-link"><i class="fas fa-calendar-check"></i> Tài liệu Chi đoàn</a></li>
+                    <li><a href="#opinion-section" class="nav-link"><i class="fas fa-comment-dots"></i> Dư luận & Hòm thư số</a></li>
+                    <li><a href="#about-section" class="nav-link"><i class="fas fa-sitemap"></i> Giới thiệu & Tổ chức</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 4. KHU VỰC HERO BANNER: CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH THỨC -->
+    <section class="hero-section" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <img src="assets/logo-doan.png" alt="Logo Đoàn" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle;" loading="lazy">
+                    <span>TIÊN PHONG • BẢN LĨNH • ĐOÀN KẾT • SÁNG TẠO • PHÁT TRIỂN</span>
+                </div>
+                <h2 class="hero-title">
+                    Cổng Thông Tin Điện Tử <br>
+                    <span class="highlight"><span class="whitespace-nowrap">Đoàn TNCS Hồ Chí Minh</span> <span class="whitespace-nowrap">xã Mường Lầm</span></span>
+                </h2>
+                <p class="hero-lead">
+                    Tiếng nói chính thức của tuổi trẻ <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La (Khóa I, nhiệm kỳ 2025 - 2030). 
+                    Chỉ đạo <strong>22 cơ sở Đoàn / Chi đoàn trực thuộc</strong> với <strong>1.028 đoàn viên</strong>, 
+                    kết nối hơn 310 thanh niên đi làm ăn xa tại các KCN, phổ cập kỹ năng AI cho 15 bản làng và hiện đại hóa sinh hoạt chi đoàn cơ sở.
+                </p>
+                <div class="hero-actions">
+                    <a href="#news-section" class="btn-primary">
+                        <i class="far fa-newspaper"></i> Xem tin hoạt động
+                    </a>
+                    <a href="#opinion-section" class="btn-primary" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color:#ffffff;"><i class="fas fa-comment-dots"></i> Hòm thư số & Dư luận</a>
+                    <a href="#campaigns-section" class="btn-primary" style="background: linear-gradient(135deg, var(--doan-orange) 0%, #ea580c 100%); color:#ffffff;">
+                        <i class="fas fa-hand-holding-heart"></i> Đăng ký tình nguyện
+                    </a>
+                    <a href="#ai-training" class="btn-secondary">
+                        <i class="fas fa-graduation-cap"></i> Học kỹ năng AI
+                    </a>
+                    <a href="#about-section" class="btn-secondary">
+                        <i class="fas fa-users"></i> Ban Chấp hành Đoàn xã
+                    </a>
+                </div>
+            </div>
+
+            <!-- Thẻ thống kê Dashboard Counters nổi bật -->
+            <div class="hero-stats-card">
+                <div class="stats-card-header">
+                    <h3>
+                        <img src="assets/logo-doan.png" alt="Huy hiệu Đoàn" style="width: 20px; height: 20px; display: inline-block;" loading="lazy">
+                        Số Liệu Ấn Tượng <span class="whitespace-nowrap">Tuổi Trẻ Mường Lầm</span>
+                    </h3>
+                    <span class="pulse-dot" title="Khóa I, nhiệm kỳ 2025 - 2030"></span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-villages">22</div>
+                        <div class="stat-desc">Cơ sở Đoàn / Chi đoàn trực thuộc</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-youth">1.028</div>
+                        <div class="stat-desc">Đoàn viên sinh hoạt (Khóa I: 2025 - 2030)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-migrant">310+</div>
+                        <div class="stat-desc">Thanh niên làm ăn xa KCN</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-campaigns">48+</div>
+                        <div class="stat-desc">Hoạt động tình nguyện đã tổ chức</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LỐI TẮT 3 CHUYÊN MỤC CỐT LÕI -->
+    <section class="quick-nav-section" aria-label="Lối tắt chuyên mục">
+        <div class="container quick-nav-grid">
+            <a href="#news-section" class="quick-nav-card accent-blue">
+                <div class="card-icon-box">
+                    <i class="far fa-newspaper"></i>
+                </div>
+                <div class="card-info">
+                    <h4>1. Tin Tức & Hoạt Động Đoàn</h4>
+                    <p>Cập nhật phong trào thanh niên tình nguyện, công tác giáo dục và gương người tốt việc tốt tại 15 bản.</p>
+                </div>
+            </a>
+
+            <a href="#campaigns-section" class="quick-nav-card accent-red">
+                <div class="card-icon-box">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="card-info">
+                    <h4>2. Đăng Ký Chiến Dịch Tình Nguyện</h4>
+                    <p>Tham gia các hoạt động vì cộng đồng, nhận Thẻ xác nhận điện tử (E-Badge) và điểm danh số hóa.</p>
+                </div>
+            </a>
+
+            <a href="#monthly-docs" class="quick-nav-card accent-gold">
+                <div class="card-icon-box">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <div class="card-info">
+                    <h4>3. Tài Liệu Chi Đoàn 12 Tháng</h4>
+                    <p>Tra cứu nhanh kịch bản sinh hoạt chi đoàn từng tháng (đã có Tháng 1 – Tháng 11, Tháng 12 đang chờ cập nhật).</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       PHÂN HỆ 1: HỆ THỐNG TIN TỨC & BÀI VIẾT HOẠT ĐỘNG
+       =================================================================== -->
+    <section class="section-wrapper" id="news-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="far fa-newspaper"></i> Tiếng Nói <span class="whitespace-nowrap">Tuổi Trẻ Mường Lầm</span></span>
+                <h2>Tin Tức & Hoạt Động Đoàn Cơ Sở</h2>
+                <p>
+                    Thông tin kịp thời, chính xác về các phong trào hành động cách mạng, gương sáng thanh niên 
+                    và các sự kiện trọng điểm của Đoàn TNCS Hồ Chí Minh <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La.
+                </p>
+            </div>
+
+            <!-- Thanh lọc chuyên mục & Nút Đăng tin bài mới dành cho Cán bộ Đoàn -->
+            <div class="news-header-actions">
+                <div class="news-filter-wrapper" role="tablist">
+                    <button class="news-filter-btn active" data-category="all"><i class="fas fa-th-large"></i> Tất cả tin tức</button>
+                    <button class="news-filter-btn" data-category="tinh-nguyen"><i class="fas fa-hands-helping"></i> Phong trào Tình nguyện</button>
+                    <button class="news-filter-btn" data-category="chuyen-doi-so"><i class="fas fa-microchip"></i> Tuổi trẻ Sáng tạo & Số hóa</button>
+                    <button class="news-filter-btn" data-category="an-ninh-so"><i class="fas fa-shield-alt"></i> Lá chắn số & Pháp luật</button>
+                    <button class="news-filter-btn" data-category="dong-hanh-lap-nghiep"><i class="fas fa-chart-line"></i> Đồng hành Khởi nghiệp</button>
+                    <button class="news-filter-btn" data-category="truong-hoc"><i class="fas fa-school"></i> Khối Trường học</button>
+                    <button class="news-filter-btn" data-category="xa-que"><i class="fas fa-plane-departure"></i> Thanh niên Xa quê</button>
+                </div>
+
+                <!-- Nút dành cho cán bộ Đoàn đăng tải tin bài -->
+                <button class="btn-post-news" id="btn-open-post-modal">
+                    <i class="fas fa-feather-alt"></i> Đăng bài viết mới (Cán bộ Đoàn)
+                </button>
+            </div>
+
+            <!-- Lưới tin tức (Được nạp tự động bằng JavaScript từ data.js hoặc localStorage) -->
+            <div class="news-grid-container" id="news-grid-container">
+                <!-- Nội dung các thẻ bài viết -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       PHÂN HỆ CHUYÊN BIỆT: CHUYÊN MỤC MINH CHỨNG CÔNG TÁC ĐOÀN NĂM 2026
+       Bám sát Quyết định số 05-QĐ/TĐTN-CTĐ&TTN & Công văn 18-CV/ĐTN
+       Người ký duyệt: TM. BAN CHẤP HÀNH ĐOÀN XÃ - BÍ THƯ LÒ MẠNH QUYỀN
+       =================================================================== -->
+    <section class="section-wrapper proofs-section" id="proofs-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="proofs-banner-badge">
+                    <img src="assets/logo-doan.png" alt="Logo Đoàn" style="width:16px;height:16px;vertical-align:middle;" loading="lazy">
+                    Kiểm Tra & Chấm Điểm Năm 2026 • Tỉnh Đoàn Sơn La
+                </span>
+                <h2>Chuyên Mục Minh Chứng Công Tác Đoàn & Phong Trào TTN Năm 2026</h2>
+                <p>
+                    Hệ thống số hóa hồ sơ minh chứng độc lập phục vụ công tác kiểm tra, thẩm định và chấm điểm thi đua trực tiếp 
+                    của Ban Thường vụ Tỉnh đoàn Sơn La. Bám sát <strong>Quyết định số 05-QĐ/TĐTN-CTĐ&TTN</strong> và 
+                    <strong>Công văn số 18-CV/ĐTN</strong> của BCH Đoàn <span class="whitespace-nowrap">xã Mường Lầm</span>.
+                </p>
+                <div style="margin-top:0.6rem; font-size:0.85rem; font-weight:700; color:var(--text-secondary);">
+                    <i class="fas fa-file-signature" style="color:var(--doan-red);"></i> Người ký duyệt hồ sơ: 
+                    <span style="color:var(--doan-red);">TM. BAN CHẤP HÀNH ĐOÀN XÃ - BÍ THƯ LÒ MẠNH QUYỀN</span>
+                </div>
+            </div>
+
+            <!-- Dashboard Tiến Độ Minh Chứng -->
+            <div class="proof-stats-banner">
+                <div class="proof-stat-card">
+                    <div class="proof-stat-icon blue"><i class="fas fa-link"></i></div>
+                    <div class="proof-stat-info">
+                        <h4 id="stat-proof-links">14 / 14</h4>
+                        <p>Đường link minh chứng độc lập (100%)</p>
+                    </div>
+                </div>
+                <div class="proof-stat-card">
+                    <div class="proof-stat-icon orange"><i class="fas fa-check-circle"></i></div>
+                    <div class="proof-stat-info">
+                        <h4>05 Link</h4>
+                        <p>Điều kiện bắt buộc (TC 2.2, 4.8.1, 4.8.2)</p>
+                    </div>
+                </div>
+                <div class="proof-stat-card">
+                    <div class="proof-stat-icon green"><i class="fas fa-lightbulb"></i></div>
+                    <div class="proof-stat-info">
+                        <h4>09 Link</h4>
+                        <p>11 Nhóm giải pháp chủ động định hướng</p>
+                    </div>
+                </div>
+                <div class="proof-stat-card">
+                    <div class="proof-stat-icon red"><i class="fas fa-stamp"></i></div>
+                    <div class="proof-stat-info">
+                        <h4>100% Đầy đủ</h4>
+                        <p>Kế hoạch & Báo cáo Cấp ủy xác nhận</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thanh công cụ lọc, tìm kiếm, đổi chế độ xem và xuất báo cáo -->
+            <div class="proof-toolbar">
+                <div class="proof-filter-group" role="tablist">
+                    <button class="proof-filter-btn active" data-filter="all">
+                        <i class="fas fa-list-ul"></i> Tất cả 14 Minh chứng (12 Tiêu chí)
+                    </button>
+                    <button class="proof-filter-btn" data-filter="bat-buoc">
+                        <i class="fas fa-check-double"></i> A. Điều kiện bắt buộc (5 Link)
+                    </button>
+                    <button class="proof-filter-btn" data-filter="chu-dong">
+                        <i class="fas fa-tasks"></i> B. Nhóm giải pháp chủ động (9 Link)
+                    </button>
+                </div>
+
+                <div class="proof-action-group">
+                    <div class="proof-search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="proof-search-input" placeholder="Tìm tiêu chí, số liệu, bản làng...">
+                    </div>
+
+                    <div class="view-toggle-btns">
+                        <button class="view-toggle-btn active" id="btn-view-cards" title="Xem dạng Thẻ"><i class="fas fa-th-large"></i></button>
+                        <button class="view-toggle-btn" id="btn-view-table" title="Xem dạng Bảng Chấm điểm"><i class="fas fa-table"></i></button>
+                    </div>
+
+                    <button class="btn-export-proofs" id="btn-open-export-modal" title="Xuất toàn bộ danh sách 14 link gửi Tỉnh đoàn">
+                        <i class="fas fa-file-export"></i> Xuất Báo Cáo Link
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chế độ xem 1: Lưới Thẻ Minh Chứng (Mặc định) -->
+            <div class="proof-cards-grid" id="proof-cards-container">
+                <!-- Nạp tự động từ INITIAL_PROOF_ARTICLES trong js/data.js -->
+            </div>
+
+            <!-- Chế độ xem 2: Bảng Theo Dõi Chấm Điểm 2026 (Scorecard Table) -->
+            <div class="proof-table-wrapper" id="proof-table-container" style="display:none;">
+                <table class="proof-scorecard-table">
+                    <thead>
+                        <tr>
+                            <th style="width:40px; text-align:center;">TT</th>
+                            <th style="width:110px;">Mã Tiêu Chí</th>
+                            <th>Nội Dung Hoạt Động & Giải Pháp Minh Chứng</th>
+                            <th style="width:80px; text-align:center;">Điểm QĐ 05</th>
+                            <th>Quy Mô & Tỷ Lệ ĐVTN Tiếp Cận</th>
+                            <th style="width:120px;">Hồ Sơ Xác Nhận</th>
+                            <th style="width:160px; text-align:center;">Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="proof-table-body">
+                        <!-- Nạp tự động bằng JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       PHÂN HỆ 2: CỔNG ĐĂNG KÝ HOẠT ĐỘNG & CHIẾN DỊCH TÌNH NGUYỆN
+       =================================================================== -->
+    <section class="section-wrapper bg-alt" id="campaigns-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-heart"></i> Tình Nguyện Vì Cuộc Sống Cộng Đồng</span>
+                <h2>Chiến Dịch & Hoạt Động Tình Nguyện Sắp Diễn Ra</h2>
+                <p>
+                    Đoàn viên thanh niên 15 bản, học sinh trường THPT <span class="whitespace-nowrap">Mường Lầm</span> và các cơ sở trực thuộc đăng ký tham gia trực tuyến. 
+                    Hệ thống tự động cấp **Thẻ xác nhận điện tử (E-Badge)** và tính điểm rèn luyện đoàn viên.
+                </p>
+            </div>
+
+            <!-- Lưới các sự kiện tình nguyện sắp tới -->
+            <div class="campaigns-grid" id="campaigns-grid-container">
+                <!-- Nạp từ VOLUNTEER_CAMPAIGNS trong js/data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       PHÂN HỆ 3: TẬP HUẤN KỸ NĂNG SỬ DỤNG AI CƠ BẢN
+       =================================================================== -->
+    <section class="section-wrapper" id="ai-training">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-microchip"></i> Học Phần Thực Hành Số</span>
+                <h2>Tập Huấn Kỹ Năng Trí Tuệ Nhân Tạo (AI) Cơ Bản</h2>
+                <p>
+                    Dành cho cán bộ Đoàn, đoàn viên thanh niên và bà con <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La. 
+                    Không cần kiến thức lập trình phức tạp — chỉ cần biết cách ra lệnh (Prompt) chính xác để biến AI thành trợ lý đắc lực!
+                </p>
+            </div>
+
+            <!-- Bộ lọc phân loại bài học -->
+            <div class="filter-tabs-wrapper" role="tablist">
+                <button class="filter-btn active" data-category="all"><i class="fas fa-th-large"></i> Tất cả bài học</button>
+                <button class="filter-btn" data-category="can-bo-doan"><i class="fas fa-feather-alt"></i> Cán bộ Đoàn & Soạn thảo</button>
+                <button class="filter-btn" data-category="nong-san"><i class="fas fa-store-alt"></i> Bán nông sản Mường Lầm</button>
+                <button class="filter-btn" data-category="phong-chong-lua-dao"><i class="fas fa-shield-virus"></i> Lá chắn số & Chống lừa đảo</button>
+                <button class="filter-btn" data-category="truyen-thong"><i class="fas fa-paint-brush"></i> Thiết kế Poster & Truyền thông</button>
+                <button class="filter-btn" data-category="hoc-tap-khoi-nghiep"><i class="fas fa-graduation-cap"></i> Học tập & Hướng nghiệp</button>
+            </div>
+
+            <!-- Danh sách thẻ học phần AI -->
+            <div class="ai-modules-grid" id="ai-modules-container">
+                <!-- Nội dung được tạo bằng JavaScript -->
+            </div>
+
+            <!-- TIỆN ÍCH TƯƠNG TÁC: TRỢ LÝ VIẾT PROMPT NHANH -->
+            <div class="prompt-generator-card">
+                <div class="generator-header">
+                    <div class="generator-icon"><i class="fas fa-magic"></i></div>
+                    <div class="generator-title">
+                        <h3>Trợ Lý Tạo Prompt Nhanh Cho Thanh Niên Mường Lầm</h3>
+                        <p>Chọn thông tin bên dưới, hệ thống sẽ tự động ghép thành câu lệnh AI chuẩn chỉnh sẵn sàng sao chép!</p>
+                    </div>
+                </div>
+
+                <div class="generator-form-grid">
+                    <div class="form-group">
+                        <label for="gen-purpose"><i class="fas fa-crosshairs"></i> Mục đích cần làm:</label>
+                        <select id="gen-purpose" class="form-control">
+                            <option value="ban-nong-san">Bán nông sản địa phương (Nhãn Mường Lầm, Xoài, Mật ong...)</option>
+                            <option value="kich-ban-chi-doan">Soạn kịch bản sinh hoạt chi đoàn bản</option>
+                            <option value="canh-bao-lua-dao">Viết tin cảnh báo lừa đảo qua mạng</option>
+                            <option value="keu-goi-thanh-nien">Viết lời kêu gọi thanh niên dọn vệ sinh / tình nguyện</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gen-topic"><i class="fas fa-tag"></i> Chủ đề / Tên nông sản / Hoạt động cụ thể:</label>
+                        <input type="text" id="gen-topic" class="form-control" placeholder="Ví dụ: Nhãn chín muộn Mường Lầm cùi dày hoặc Ngày Chủ nhật xanh" value="Nhãn chín muộn Mường Lầm cùi dày ngọt lịm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gen-target"><i class="fas fa-users"></i> Đối tượng hướng tới:</label>
+                        <select id="gen-target" class="form-control">
+                            <option value="Khách hàng ở các thành phố lớn (Hà Nội, Bắc Ninh, Hải Phòng)">Khách hàng tại các tỉnh thành phố</option>
+                            <option value="Đoàn viên thanh niên và bà con tại 15 bản xã Mường Lầm, Sơn La">Đoàn viên và bà con tại 15 bản</option>
+                            <option value="Anh chị em thanh niên Mường Lầm đang đi làm ăn xa">Thanh niên xa quê tại các KCN</option>
+                            <option value="Học sinh trường THPT Mường Lầm">Đoàn viên, học sinh trường THPT Mường Lầm</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="btn-run-generator" style="width: 100%; justify-content: center;">
+                    <i class="fas fa-wand-magic-sparkles"></i> Tạo Câu Lệnh AI Ngay Lập Tức
+                </button>
+
+                <div class="generator-result-box" id="generator-result-container" style="display:none;">
+                    <label style="font-size:0.8rem; font-weight:700; color:#15803d; margin-bottom:0.4rem; display:block;">
+                        <i class="fas fa-check-circle"></i> Câu lệnh đã tạo sẵn cho bạn (Sao chép và dán vào ChatGPT / Gemini):
+                    </label>
+                    <div class="generator-result-text" id="generator-prompt-output"></div>
+                    <button class="btn-primary" id="btn-copy-generated-prompt" style="font-size:0.82rem; padding:0.4rem 0.8rem;">
+                        <i class="far fa-copy"></i> Sao chép câu lệnh này
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       PHÂN HỆ 4: GIẢI PHÁP SỐ & KẾT NỐI THANH NIÊN XA QUÊ
+       =================================================================== -->
+    <section class="section-wrapper bg-alt" id="digital-solutions">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-network-wired"></i> Mô Hình Thực Tiễn</span>
+                <h2>Nghiên Cứu & Triển Khai Giải Pháp Kết Nối Thanh Niên</h2>
+                <p>
+                    Giải bài toán tập hợp thanh niên trong bối cảnh đặc thù của <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La (Khóa I: 2025 - 2030): 
+                    Hơn 310 thanh niên đi làm ăn xa tại các khu công nghiệp và <strong>22 cơ sở Đoàn / Chi đoàn trực thuộc</strong> (15 Chi đoàn bản, 05 Chi đoàn trường học, 02 Chi đoàn cơ quan/LLVT) với <strong>1.028 đoàn viên</strong>.
+                </p>
+            </div>
+
+            <!-- Tab chọn 2 nhánh giải pháp -->
+            <div class="solutions-tabs-nav">
+                <button class="sol-tab-btn active" data-target="panel-migrant">
+                    <i class="fas fa-plane-departure"></i> Nhóm 1: Thanh niên đi làm ăn xa (KCN)
+                </button>
+                <button class="sol-tab-btn" data-target="panel-villages">
+                    <i class="fas fa-mountain"></i> Nhóm 2: Thanh niên tại 15 bản & Cơ sở trường học
+                </button>
+            </div>
+
+            <!-- NHÁNH 1: THANH NIÊN ĐI LÀM ĂN XA -->
+            <div class="sol-panel active" id="panel-migrant">
+                <div class="challenge-callout">
+                    <strong><i class="fas fa-exclamation-triangle"></i> Thực trạng & Thách thức:</strong>
+                    Toàn xã có hơn 310 thanh niên làm việc tại các nhà máy, KCN ở Bắc Ninh, Bắc Giang, Hà Nội, Bình Dương... 
+                    Làm việc theo ca kíp, ít có điều kiện về quê, khó nắm bắt chủ trương của địa phương, gặp rủi ro về pháp lý, 
+                    thủ tục hành chính và dễ bị các đối tượng xấu lừa đảo qua mạng.
+                </div>
+
+                <div class="sol-cards-grid">
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fab fa-telegram"></i> Mô hình "Chi đoàn số xa quê"</h4>
+                            <p>Tổ chức sinh hoạt trực tuyến định kỳ qua Google Meet / Zalo nhóm theo cụm tỉnh; ứng dụng biểu mẫu điểm danh số và biểu dương tinh thần nỗ lực của thanh niên xa nhà.</p>
+                        </div>
+                        <a href="#connect-form" class="sol-card-btn"><i class="fas fa-arrow-right"></i> Đăng ký tham gia nhóm cụm</a>
+                    </div>
+
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fas fa-podcast"></i> Chuyên mục "Bản tin Quê Mường cuối tuần"</h4>
+                            <p>Đoàn xã sản xuất bản tin ảnh và audio podcast 2 phút phát vào tối Chủ nhật: Cập nhật mùa màng, chính sách hỗ trợ vay vốn, không khí bản làng để các bạn luôn nhớ về cội nguồn.</p>
+                        </div>
+                        <a href="#monthly-docs" class="sol-card-btn"><i class="fas fa-arrow-right"></i> Xem bản tin quê hương</a>
+                    </div>
+
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fas fa-id-card"></i> Bàn tư vấn Dịch vụ công & Pháp lý online</h4>
+                            <p>Đoàn xã cử cán bộ thường trực hỗ trợ từ xa qua Zalo / Hotline <strong>035.444.2054</strong>: Kích hoạt VNeID mức 2, làm CCCD, trích lục khai sinh, đăng ký kết hôn, nghĩa vụ quân sự không cần tốn tiền triệu đi lại.</p>
+                        </div>
+                        <a href="#connect-form" class="sol-card-btn"><i class="fas fa-arrow-right"></i> Gửi yêu cầu hỗ trợ hồ sơ</a>
+                    </div>
+
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fas fa-user-shield"></i> Cầu nối việc làm an toàn & Phòng ngừa lừa đảo</h4>
+                            <p>Phối hợp với Trung tâm Dịch vụ việc làm thẩm định thông tin tuyển dụng minh bạch, kiên quyết cảnh báo và ngăn chặn bẫy lừa sang Campuchia, Myanmar hay đa cấp trá hình.</p>
+                        </div>
+                        <a href="#ai-training" class="sol-card-btn"><i class="fas fa-arrow-right"></i> Kiểm tra tin lừa đảo bằng AI</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NHÁNH 2: THANH NIÊN TẠI 15 BẢN & CÁC CƠ SỞ TRỰC THUỘC -->
+            <div class="sol-panel" id="panel-villages">
+                <div class="challenge-callout">
+                    <strong><i class="fas fa-exclamation-triangle"></i> Thực trạng & Thách thức:</strong>
+                    Địa bàn xã Mường Lầm rộng với 15 bản làng (Lốm Hỏm, Bản Hịa, Mường Nưa, Mường Tợ, Lấu Ngày, Phèn Sàng, Củ Luông, Đứa Lốc, Tặng Sỏn, Huổi Lếch, Núa Cốc, Phá Thóng, Hin Phẩng, Tỉa Pặt, Nà Tấu) 
+                    địa hình đồi núi dốc; mùa mưa lũ giao thông chia cắt, sóng di động tại một số vùng lõm chập chờn.
+                </div>
+
+                <div class="sol-cards-grid">
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fas fa-users-cog"></i> 15 Tổ công nghệ số thanh niên nòng cốt tại bản</h4>
+                            <p>Mỗi bản thành lập 1 đội 3-5 đoàn viên thông thạo smartphone: Hàng tuần đi từng ngõ, gõ từng nhà hướng dẫn bà con thanh toán tiền điện thoại qua QR, tra cứu lịch tiêm chủng, làm VNeID.</p>
+                        </div>
+                        <a href="#village-modal" class="sol-card-btn btn-open-village-modal"><i class="fas fa-arrow-right"></i> Tra cứu 15 tổ bản làng</a>
+                    </div>
+
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fas fa-qrcode"></i> Bảng quét mã QR tri thức tại Nhà văn hóa 15 bản</h4>
+                            <p>Dán bảng mã QR tại nhà văn hóa 15 bản: Đoàn viên chỉ cần quét mã bằng điện thoại là tải được kịch bản sinh hoạt chi đoàn, kỹ thuật ghép cành nhãn, phòng bệnh gia súc không cần in giấy.</p>
+                        </div>
+                        <a href="#monthly-docs" class="sol-card-btn"><i class="fas fa-arrow-right"></i> Khám phá kho tài liệu số</a>
+                    </div>
+
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fas fa-feather"></i> Truyền thông "Số hóa thị giác" siêu nhẹ</h4>
+                            <p>Nén dung lượng ảnh infographic dưới 300KB và các đoạn âm thanh MP3 phát qua loa kéo Bluetooth của bản, đảm bảo mạng 3G yếu vẫn xem mượt mà không tốn dung lượng data.</p>
+                        </div>
+                        <a href="#ai-training" class="sol-card-btn"><i class="fas fa-arrow-right"></i> Xem hướng dẫn làm ảnh nhẹ</a>
+                    </div>
+
+                    <div class="sol-card">
+                        <div>
+                            <h4><i class="fas fa-lightbulb"></i> Sổ tay số & Hòm thư sáng kiến thanh niên</h4>
+                            <p>Kênh số hóa lắng nghe tâm tư, nguyện vọng khởi nghiệp và tiếp nhận các sáng kiến cải tạo đường sá, bảo vệ môi trường, văn hóa bản Mường từ chính đoàn viên bản địa.</p>
+                        </div>
+                        <a href="#connect-form" class="sol-card-btn"><i class="fas fa-arrow-right"></i> Gửi sáng kiến ngay</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM ĐĂNG KÝ MẠNG LƯỚI & GỬI SÁNG KIẾN SỐ -->
+            <div class="connect-form-card" id="connect-form">
+                <div class="form-header">
+                    <span class="section-badge"><i class="fas fa-handshake"></i> Đồng Hành Cùng Tuổi Trẻ Mường Lầm</span>
+                    <h3>Đăng Ký Mạng Lưới Kết Nối & Đề Xuất Sáng Kiến Số</h3>
+                    <p>Dành cho đoàn viên, thanh niên tại 15 bản, các chi đoàn cơ sở, trường học hoặc đang đi làm ăn xa</p>
+                </div>
+
+                <form id="youth-connect-form">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="form-fullname"><i class="fas fa-user"></i> Họ và tên đoàn viên (*):</label>
+                            <input type="text" id="form-fullname" class="form-control" placeholder="Ví dụ: Lò Văn Hùng" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-phone"><i class="fas fa-phone"></i> Số điện thoại / Zalo (*):</label>
+                            <input type="tel" id="form-phone" class="form-control" placeholder="Ví dụ: 035.xxx.xxxx" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="form-village"><i class="fas fa-home"></i> Thuộc Bản hoặc Cơ sở Đoàn nào tại Mường Lầm? (*):</label>
+                            <select id="form-village" class="form-control" required>
+                                <!-- Nạp tự động từ js/app.js -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-location"><i class="fas fa-map-marker-alt"></i> Nơi đang sinh sống / làm việc hiện nay (*):</label>
+                            <input type="text" id="form-location" class="form-control" placeholder="Ví dụ: Tại bản HOẶC KCN Quế Võ - Bắc Ninh" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="form-role"><i class="fas fa-user-tag"></i> Vai trò / Nhóm đối tượng:</label>
+                            <select id="form-role" class="form-control">
+                                <option value="Thanh niên đi làm ăn xa tại KCN">Thanh niên đi làm ăn xa tại KCN / Thành phố</option>
+                                <option value="Đoàn viên thanh niên sinh hoạt tại bản">Đoàn viên thanh niên sinh hoạt tại 15 bản</option>
+                                <option value="Đoàn viên trường THPT Mường Lầm">Đoàn viên, học sinh trường THPT Mường Lầm</option>
+                                <option value="Đoàn viên Chi đoàn Công an / Cơ quan xã">Đoàn viên Chi đoàn Công an / Cơ quan xã</option>
+                                <option value="Bí thư / Phó Bí thư Chi đoàn">Bí thư / Phó Bí thư Chi đoàn</option>
+                                <option value="Thanh niên khởi nghiệp nông sản Mường Lầm">Thanh niên khởi nghiệp nông nghiệp</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-skills"><i class="fas fa-tools"></i> Kỹ năng thế mạnh / Nguyện vọng kết nối:</label>
+                            <input type="text" id="form-skills" class="form-control" placeholder="Ví dụ: Lái xe, cơ khí, văn nghệ, muốn tìm hiểu vay vốn ưu đãi...">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-suggestion"><i class="fas fa-comment-dots"></i> Ý kiến đề xuất, sáng kiến chuyển đổi số cho Đoàn xã:</label>
+                        <textarea id="form-suggestion" class="form-control" rows="3" placeholder="Chia sẻ ý tưởng xây dựng bản làng, đề xuất tổ chức họp trực tuyến, hỗ trợ giấy tờ hành chính..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <span class="form-note">
+                            <i class="fas fa-lock"></i> Thông tin được lưu trữ bảo mật trong cơ sở dữ liệu số của Đoàn xã Mường Lầm, tỉnh Sơn La.
+                        </span>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Gửi Đăng Ký & Đề Xuất
+                        </button>
+                    </div>
+                </form>
+
+                <!-- KHU VỰC QUẢN TRỊ DÀNH CHO CÁN BỘ ĐOÀN (LOCALSTORAGE + EXPORT CSV/JSON) -->
+                <div class="admin-data-section">
+                    <div class="admin-header">
+                        <h4>
+                            <i class="fas fa-database"></i> Dữ Liệu Thanh Niên Đã Đăng Ký 
+                            <span class="ai-category-badge">(<span id="record-count">0</span> bản ghi)</span>
+                        </h4>
+                        <div class="admin-controls">
+                            <button class="btn-sm" id="btn-export-csv" title="Xuất danh sách sang file Excel">
+                                <i class="fas fa-file-excel" style="color:#16a34a;"></i> Xuất Excel (CSV)
+                            </button>
+                            <button class="btn-sm" id="btn-export-json" title="Xuất file JSON sao lưu hệ thống">
+                                <i class="fas fa-file-code" style="color:#0284c7;"></i> Xuất JSON
+                            </button>
+                            <button class="btn-sm btn-danger-sm" id="btn-clear-data" title="Xóa dữ liệu thử nghiệm">
+                                <i class="fas fa-redo"></i> Đặt lại dữ liệu
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="data-table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Họ tên & SĐT</th>
+                                    <th>Bản / Đơn vị</th>
+                                    <th>Nơi làm việc</th>
+                                    <th>Kỹ năng / Nguyện vọng</th>
+                                    <th>Đề xuất sáng kiến</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-table-body">
+                                <!-- Dữ liệu nạp từ localStorage -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       PHÂN HỆ 5: KHO TÀI LIỆU SINH HOẠT CHI ĐOÀN THEO TỪNG THÁNG (12 THÁNG)
+       LƯU Ý: Đã có Tháng 1 đến Tháng 11, Tháng 12 đang chờ cập nhật
+       =================================================================== -->
+    <section class="section-wrapper" id="monthly-docs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-book-reader"></i> Sổ Tay Chi Đoàn Điện Tử</span>
+                <h2>Kho Tài Liệu Sinh Hoạt Chi Đoàn 12 Tháng</h2>
+                <p>
+                    Chuẩn hóa nội dung sinh hoạt chi đoàn từ Tháng 1 đến Tháng 12 của Đoàn <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La. 
+                    Hiện đã có đầy đủ tài liệu từ <strong>Tháng 1 đến Tháng 11</strong>; 
+                    <strong>Tháng 12</strong> đang để trống chờ định hướng chỉ đạo tổng kết năm của Đoàn cấp trên.
+                </p>
+            </div>
+
+            <!-- Thanh chọn nhanh 12 tháng -->
+            <div class="month-selector-bar" id="month-selector-bar">
+                <!-- Được tạo tự động bằng JavaScript -->
+            </div>
+
+            <!-- Chi tiết tháng đang được chọn -->
+            <div id="month-detail-container">
+                <!-- Nội dung được nạp từ js/data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       PHÂN HỆ 6: GIỚI THIỆU BAN CHẤP HÀNH & KHO BIỂU MẪU ĐOÀN VỤ
+       =================================================================== -->
+        <!-- ===================================================================
+       PHÂN HỆ: NẮM BẮT TƯ TƯỞNG, DƯ LUẬN XÃ HỘI & HÒM THƯ SỐ THANH NIÊN
+       Ban hành bởi Ban Chấp hành Đoàn TNCS Hồ Chí Minh xã Mường Lầm
+       =================================================================== -->
+    <section class="section-wrapper bg-alt opinion-section" id="opinion-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-bullhorn"></i> Lắng Nghe Tiếng Nói Thanh Niên</span>
+                <h2>Nắm Bắt Tư Tưởng, Dư Luận Xã Hội & Hòm Thư Số Thanh Niên</h2>
+                <p>
+                    Kênh chính thức tiếp nhận tâm tư, nguyện vọng, phản ánh thông tin xấu độc, tố giác tội phạm và tiếp thu hiến kế đổi mới của tuổi trẻ và Nhân dân <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La. 
+                    Cam kết bảo mật tuyệt đối danh tính, cấp mã tra cứu tiến độ xử lý trực tuyến minh bạch, kịp thời.
+                </p>
+            </div>
+
+            <!-- Banner thông báo cam kết bảo mật & Hotline -->
+            <div class="opinion-quick-alert">
+                <div class="opinion-quick-alert-text">
+                    <i class="fas fa-user-shield"></i>
+                    <div>
+                        <strong>Kênh Tiếp Nhận & Lắng Nghe Ý Kiến 24/7 của Đoàn xã Mường Lầm:</strong><br>
+                        Mọi phản ánh đều được Ban Thường vụ Đoàn xã tiếp nhận, bảo mật danh tính tuyệt đối theo quy định và phân loại báo cáo Thường trực Đảng ủy, UBND xã và Tỉnh đoàn Sơn La xử lý kịp thời.
+                    </div>
+                </div>
+                <div class="opinion-quick-alert-badges">
+                    <span class="opinion-badge-pill"><i class="fas fa-lock"></i> Bảo mật danh tính 100%</span>
+                    <span class="opinion-badge-pill"><i class="fas fa-barcode"></i> Cấp mã tra cứu trực tuyến</span>
+                    <a href="tel:0354442054" class="opinion-badge-pill" style="text-decoration:none;"><i class="fas fa-phone-alt"></i> Hotline: 035.444.2054</a>
+                </div>
+            </div>
+
+            <!-- BỐ CỤC 2 CỘT: BIỂU MẪU GỬI Ý KIẾN (TRÁI) & KHẢO SÁT, QR, TRA CỨU (PHẢI) -->
+            <div class="opinion-main-grid">
+                <!-- CỘT TRÁI: FORM PHẢN ÁNH NHANH & HÒM THƯ SỐ -->
+                <div>
+                    <div class="opinion-card">
+                        <div class="opinion-card-header header-emerald">
+                            <h3><i class="fas fa-paper-plane"></i> Gửi Phản Ánh Tư Tưởng, Dư Luận & Hiến Kế</h3>
+                            <span class="opinion-badge-pill" style="background:rgba(255,255,255,0.2); color:#fff; border-color:rgba(255,255,255,0.4);">
+                                <i class="fas fa-shield-alt"></i> Hòm thư số an toàn
+                            </span>
+                        </div>
+                        <div class="opinion-card-body">
+                            <form id="form-opinion-feedback">
+                                <!-- 1. Nhóm vấn đề phản ánh -->
+                                <div class="form-opinion-group">
+                                    <label for="opinion-group-select">
+                                        <i class="fas fa-layer-group" style="color:var(--primary-blue);"></i> 
+                                        Nhóm vấn đề phản ánh / kiến nghị <span class="required-mark">(*)</span>:
+                                    </label>
+                                    <select id="opinion-group-select" class="form-opinion-control" required>
+                                        <option value="">-- Chọn nhóm nội dung phản ánh --</option>
+                                        <option value="tam-tu">1. Tâm tư, nguyện vọng về học tập, nghề nghiệp, việc làm & khởi nghiệp</option>
+                                        <option value="doi-song">2. Tình hình đời sống, sản xuất, an sinh xã hội tại các bản</option>
+                                        <option value="tin-xau">3. Phản ánh thông tin xấu độc, tin giả, lừa đảo trên không gian mạng</option>
+                                        <option value="to-giac">4. Tố giác tội phạm, tệ nạn xã hội, vi phạm pháp luật (Hòm thư tố giác điện tử)</option>
+                                        <option value="hien-ke">5. Hiến kế, đề xuất sáng kiến đổi mới hoạt động Đoàn – Hội – Đội xã Mường Lầm</option>
+                                    </select>
+                                </div>
+
+                                <!-- 2. Chi đoàn / Địa bàn bản -->
+                                <div class="form-opinion-group">
+                                    <label for="opinion-village-select">
+                                        <i class="fas fa-map-marker-alt" style="color:var(--doan-orange);"></i> 
+                                        Chi đoàn / Địa bàn liên quan <span class="required-mark">(*)</span>:
+                                    </label>
+                                    <select id="opinion-village-select" class="form-opinion-control" required>
+                                        <option value="">-- Chọn địa bàn bản / Chi đoàn trực thuộc --</option>
+                                        <optgroup label="15 Chi đoàn Bản (Khối nông thôn)">
+                                            <option value="Bản Đứa Lốc">Chi đoàn bản Đứa Lốc</option>
+                                            <option value="Bản Củ Luông">Chi đoàn bản Củ Luông</option>
+                                            <option value="Bản Núa Cốc">Chi đoàn bản Núa Cốc</option>
+                                            <option value="Bản Nà Tấu">Chi đoàn bản Nà Tấu</option>
+                                            <option value="Bản Phá Thóng">Chi đoàn bản Phá Thóng</option>
+                                            <option value="Bản Hin Phẩng">Chi đoàn bản Hin Phẩng</option>
+                                            <option value="Bản Tỉa Pặt">Chi đoàn bản Tỉa Pặt</option>
+                                            <option value="Bản Tặng Sỏn">Chi đoàn bản Tặng Sỏn</option>
+                                            <option value="Bản Huổi Lếch">Chi đoàn bản Huổi Lếch</option>
+                                            <option value="Bản Mường Nưa">Chi đoàn bản Mường Nưa</option>
+                                            <option value="Bản Mường Tợ">Chi đoàn bản Mường Tợ</option>
+                                            <option value="Bản Phèn Sàng">Chi đoàn bản Phèn Sàng</option>
+                                            <option value="Bản Lấu Ngày">Chi đoàn bản Lấu Ngày</option>
+                                            <option value="Bản Lốm Hỏm">Chi đoàn bản Lốm Hỏm</option>
+                                            <option value="Bản Hịa">Chi đoàn bản Hịa</option>
+                                        </optgroup>
+                                        <optgroup label="05 Cơ sở Đoàn / Chi đoàn Trường học">
+                                            <option value="Đoàn trường THPT Mường Lầm">Đoàn trường THPT Mường Lầm (459 ĐV)</option>
+                                            <option value="Chi đoàn PTDTBT TH&THCS Đứa Mòn">Chi đoàn Trường PTDTBT TH&THCS Đứa Mòn</option>
+                                            <option value="Chi đoàn Mầm non Hoa Cúc">Chi đoàn Trường Mầm non Hoa Cúc</option>
+                                            <option value="Chi đoàn Mầm non Tuổi Hoa">Chi đoàn Trường Mầm non Tuổi Hoa</option>
+                                            <option value="Chi đoàn TH&THCS Mường Lầm">Chi đoàn Trường TH&THCS Mường Lầm</option>
+                                        </optgroup>
+                                        <optgroup label="02 Chi đoàn Cơ quan / LLVT">
+                                            <option value="Chi đoàn Công an xã">Chi đoàn Công an xã Mường Lầm</option>
+                                            <option value="Chi đoàn Cơ quan xã">Chi đoàn Cơ quan xã Mường Lầm</option>
+                                        </optgroup>
+                                        <optgroup label="Khối Đặc Thù">
+                                            <option value="Thanh niên đi làm ăn xa (KCN ngoài tỉnh)">Thanh niên Mường Lầm đi làm ăn xa (KCN Bắc Ninh, Bắc Giang, Hà Nội...)</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
+                                <!-- 3. Mức độ khẩn cấp -->
+                                <div class="form-opinion-group">
+                                    <label>
+                                        <i class="fas fa-exclamation-circle" style="color:var(--star-gold);"></i> 
+                                        Mức độ tính chất vụ việc <span class="required-mark">(*)</span>:
+                                    </label>
+                                    <div class="urgency-selector-box">
+                                        <label class="urgency-option-label">
+                                            <input type="radio" name="opinion-urgency" value="normal" checked>
+                                            <span><i class="fas fa-clock" style="color:var(--primary-blue);"></i> Thông tin định kỳ / Kiến nghị</span>
+                                        </label>
+                                        <label class="urgency-option-label urgent-opt">
+                                            <input type="radio" name="opinion-urgency" value="urgent">
+                                            <span><i class="fas fa-fire" style="color:#dc2626;"></i> Vụ việc nóng / Cần xử lý ngay</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- 4. Nội dung chi tiết -->
+                                <div class="form-opinion-group">
+                                    <label for="opinion-content-text">
+                                        <i class="fas fa-pencil-alt" style="color:var(--primary-blue);"></i> 
+                                        Nội dung phản ánh / kiến nghị / hiến kế chi tiết <span class="required-mark">(*)</span>:
+                                    </label>
+                                    <textarea id="opinion-content-text" class="form-opinion-control" rows="4" placeholder="Nhập chi tiết thông tin, địa điểm, sự việc hoặc sáng kiến đề xuất..." required></textarea>
+                                </div>
+
+                                <!-- 5. Tùy chọn đính kèm link minh chứng -->
+                                <div class="form-opinion-group">
+                                    <label for="opinion-proof-link">
+                                        <i class="fas fa-paperclip" style="color:var(--text-muted);"></i> 
+                                        Đính kèm liên kết ảnh chụp / tài liệu minh chứng (nếu có):
+                                    </label>
+                                    <input type="text" id="opinion-proof-link" class="form-opinion-control" placeholder="Dán link ảnh Google Drive, Facebook hoặc mô tả ngắn gọn...">
+                                </div>
+
+                                <!-- 6. Chế độ gửi: Ẩn danh hoặc Công khai -->
+                                <div class="anonymous-box">
+                                    <label class="anonymous-checkbox-label">
+                                        <input type="checkbox" id="chk-opinion-anonymous" checked>
+                                        <span><i class="fas fa-user-secret" style="color:#d97706;"></i> Gửi ẩn danh (Bảo mật tuyệt đối danh tính người gửi)</span>
+                                    </label>
+                                    <p class="anonymous-hint-text">
+                                        Khi tích chọn, hệ thống không lưu thông tin cá nhân. Bỏ chọn nếu muốn Đoàn xã liên hệ trực tiếp phản hồi.
+                                    </p>
+                                </div>
+
+                                <!-- Khung nhập họ tên & SĐT (chỉ hiện khi bỏ chọn ẩn danh) -->
+                                <div id="opinion-contact-fields" style="display:none; margin-bottom:1.1rem; background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:1rem;">
+                                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
+                                        <div>
+                                            <label for="opinion-sender-name" style="font-size:0.82rem; font-weight:700;"><i class="fas fa-user"></i> Họ và tên người gửi:</label>
+                                            <input type="text" id="opinion-sender-name" class="form-opinion-control" placeholder="VD: Lò Văn Minh">
+                                        </div>
+                                        <div>
+                                            <label for="opinion-sender-phone" style="font-size:0.82rem; font-weight:700;"><i class="fas fa-phone"></i> Số điện thoại / Zalo:</label>
+                                            <input type="tel" id="opinion-sender-phone" class="form-opinion-control" placeholder="VD: 035.444.xxxx">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Nút gửi -->
+                                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem;">
+                                    <span style="font-size:0.78rem; color:var(--text-muted);">
+                                        <i class="fas fa-info-circle"></i> Nhận mã phiếu tra cứu ngay sau khi gửi.
+                                    </span>
+                                    <button type="submit" class="btn-primary" style="background:var(--primary-blue); font-size:0.92rem; padding:0.6rem 1.4rem;">
+                                        <i class="fas fa-paper-plane"></i> Gửi Phản Ánh Ngay
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- THẺ TRA CỨU TRẠNG THÁI PHIẾU PHẢN ÁNH -->
+                    <div class="opinion-card">
+                        <div class="opinion-card-header" style="background:linear-gradient(135deg, #334155 0%, #475569 100%);">
+                            <h3><i class="fas fa-search"></i> Tra Cứu Kết Quả Xử Lý Phiếu Phản Ánh</h3>
+                            <span class="opinion-badge-pill" style="background:rgba(255,255,255,0.15); color:#fff; border-color:rgba(255,255,255,0.3);">
+                                <i class="fas fa-check-circle"></i> Trực tuyến 24/7
+                            </span>
+                        </div>
+                        <div class="opinion-card-body">
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.8rem;">
+                                Nhập <strong>Mã phiếu phản ánh</strong> đã được cấp (Ví dụ: <code>DLXH-ML-2026-01</code>) để theo dõi tiến độ tiếp nhận, xử lý từ Ban Thường vụ Đoàn xã:
+                            </p>
+                            <div class="lookup-input-row">
+                                <input type="text" id="input-lookup-code" class="form-opinion-control" placeholder="Nhập mã phiếu (VD: DLXH-ML-2026-01)">
+                                <button type="button" class="btn-primary" id="btn-do-lookup" style="background:#0284c7; white-space:nowrap;">
+                                    <i class="fas fa-search"></i> Tra cứu
+                                </button>
+                            </div>
+
+                            <!-- Vùng kết quả tra cứu hiển thị linh hoạt -->
+                            <div class="lookup-result-card" id="lookup-result-container">
+                                <!-- Nạp động bằng JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CỘT PHẢI: KHẢO SÁT NHANH DƯ LUẬN, MÃ QR & QUẢN TRỊ ADMIN -->
+                <div>
+                    <!-- THẺ 1: KHẢO SÁT NHANH DƯ LUẬN THANH NIÊN (QUICK POLLS) -->
+                    <div class="opinion-card">
+                        <div class="opinion-card-header header-purple">
+                            <h3><i class="fas fa-poll"></i> Khảo Sát Nhanh Dư Luận Thanh Niên</h3>
+                            <span class="opinion-badge-pill" style="background:rgba(255,255,255,0.2); color:#fff; border-color:rgba(255,255,255,0.4);">
+                                <i class="fas fa-chart-bar"></i> Kết quả thời gian thực
+                            </span>
+                        </div>
+                        <div class="opinion-card-body">
+                            <!-- KHẢO SÁT 1: NHU CẦU HỖ TRỢ THIẾT THỰC -->
+                            <div class="poll-widget-box" id="poll-widget-1">
+                                <div class="poll-question-title">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>Khảo sát 1: Nhu cầu hỗ trợ thiết thực nhất hiện nay của thanh niên xã Mường Lầm là gì?</span>
+                                </div>
+                                <div class="poll-options-list" id="poll-1-options">
+                                    <!-- Render động bằng JS -->
+                                </div>
+                                <div class="poll-footer-info">
+                                    <span id="poll-1-total-count"><i class="fas fa-users"></i> Tổng lượt bình chọn: 352</span>
+                                    <button type="button" class="btn-sm" id="btn-vote-poll-1" style="background:var(--primary-blue); color:#fff; border:none; padding:3px 10px;">
+                                        <i class="fas fa-check"></i> Bình chọn
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- KHẢO SÁT 2: MỨC ĐỘ HÀI LÒNG SỐ HÓA TÀI LIỆU -->
+                            <div class="poll-widget-box" id="poll-widget-2" style="margin-bottom:0;">
+                                <div class="poll-question-title">
+                                    <i class="fas fa-star" style="color:var(--star-gold);"></i>
+                                    <span>Khảo sát 2: Mức độ hài lòng của đoàn viên với việc số hóa tài liệu sinh hoạt Chi đoàn hằng tháng trên Cổng thông tin?</span>
+                                </div>
+                                <div class="poll-options-list" id="poll-2-options">
+                                    <!-- Render động bằng JS -->
+                                </div>
+                                <div class="poll-footer-info">
+                                    <span id="poll-2-total-count"><i class="fas fa-users"></i> Tổng lượt bình chọn: 350</span>
+                                    <button type="button" class="btn-sm" id="btn-vote-poll-2" style="background:#7e22ce; color:#fff; border:none; padding:3px 10px;">
+                                        <i class="fas fa-check"></i> Bình chọn
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- THẺ 2: MÃ QR TRUY CẬP NHANH DÁN TẠI BẢN LÀNG & TRƯỜNG HỌC -->
+                    <div class="opinion-card">
+                        <div class="opinion-card-header" style="background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%);">
+                            <h3><i class="fas fa-qrcode"></i> Kênh Lắng Nghe Tuổi Trẻ & Mã QR Bản Làng</h3>
+                            <span class="opinion-badge-pill" style="background:rgba(255,255,255,0.2); color:#fff; border-color:rgba(255,255,255,0.4);">
+                                <i class="fas fa-print"></i> Dán Nhà văn hóa
+                            </span>
+                        </div>
+                        <div class="opinion-card-body">
+                            <div class="qr-frame-wrapper">
+                                <div class="qr-canvas-box">
+                                    <canvas id="opinion-qr-canvas" width="160" height="160" aria-label="Mã QR Hòm thư số Đoàn xã Mường Lầm"></canvas>
+                                </div>
+                                <p class="qr-caption-text">
+                                    <strong>KÊNH LẮNG NGHE TUỔI TRẺ & NHÂN DÂN XÃ MƯỜNG LẦM</strong><br>
+                                    Quét mã QR bằng Camera điện thoại hoặc Zalo để gửi phản ánh, tâm tư, hiến kế trực tiếp tới Ban Chấp hành Đoàn xã.
+                                </p>
+                                <div class="qr-buttons-row">
+                                    <button type="button" class="btn-primary" id="btn-download-qr-img" style="font-size:0.82rem; padding:0.4rem 0.9rem;">
+                                        <i class="fas fa-download"></i> Tải ảnh Mã QR (In dán tại bản)
+                                    </button>
+                                    <button type="button" class="btn-secondary" id="btn-copy-opinion-link" style="font-size:0.82rem; padding:0.4rem 0.9rem;">
+                                        <i class="far fa-copy"></i> Sao chép link gửi Zalo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- THẺ 3: KHU VỰC DÀNH CHO CÁN BỘ ĐOÀN XÃ (ADMIN QUẢN LÝ DƯ LUẬN) -->
+                    <div class="opinion-card" style="border-left:4px solid var(--doan-orange);">
+                        <div class="opinion-card-body" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                            <div>
+                                <h4 style="font-size:0.95rem; font-weight:800; color:var(--text-primary); margin-bottom:0.2rem;">
+                                    <i class="fas fa-user-shield" style="color:var(--doan-orange);"></i> Cán bộ Đoàn xã: Quản lý Dư luận xã hội
+                                </h4>
+                                <p style="font-size:0.8rem; color:var(--text-secondary); margin:0;">
+                                    Theo dõi các phản ánh nóng, cập nhật trạng thái xử lý và xuất Báo cáo định kỳ gửi Cấp ủy & Tỉnh đoàn.
+                                </p>
+                            </div>
+                            <button type="button" class="btn-admin-opinion-trigger" id="btn-open-admin-opinion-modal">
+                                <i class="fas fa-lock"></i> Đăng nhập Quản lý & Báo cáo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-wrapper bg-alt" id="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-sitemap"></i> Bộ Máy Tổ Chức & Thủ Tục</span>
+                <h2>Ban Chấp Hành Đoàn Xã Khóa I (2025 - 2030) & Kho Biểu Mẫu Đoàn Vụ</h2>
+                <p>
+                    Giới thiệu 15 đồng chí Ban Thường vụ & Ủy viên Ban Chấp hành Đoàn <span class="whitespace-nowrap">xã Mường Lầm</span> Khóa I, nhiệm kỳ 2025 - 2030 
+                    và hệ thống danh bạ 22 cơ sở Đoàn / Chi đoàn trực thuộc với 1.028 đoàn viên đang sinh hoạt.
+                </p>
+            </div>
+
+            <!-- Danh sách Ban Thường vụ & Ban Chấp hành -->
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-blue-dark); margin-bottom:1.2rem; display:flex; align-items:center; gap:0.5rem;">
+                <i class="fas fa-users" style="color:var(--primary-blue);"></i> Danh Sách 15 Đồng Chí Ban Chấp Hành Đoàn <span class="whitespace-nowrap">Xã Mường Lầm</span> (Khóa I, Nhiệm Kỳ 2025 - 2030)
+            </h3>
+            <div class="bch-grid" id="bch-grid-container">
+                <!-- Nạp từ EXECUTIVE_COMMITTEE trong js/data.js -->
+            </div>
+
+            <!-- Kho Biểu Mẫu Đoàn Vụ Tải Về Trực Tiếp -->
+            <div style="margin-top:2.5rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem;">
+                    <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary-blue-dark); display:flex; align-items:center; gap:0.5rem;">
+                        <i class="fas fa-file-signature" style="color:var(--doan-orange);"></i> Kho Văn Bản & Biểu Mẫu Thiết Yếu Cho Chi Đoàn
+                    </h3>
+                    <button class="btn-sm btn-open-village-modal" style="background:#ffffff; border-color:var(--primary-blue); color:var(--primary-blue);">
+                        <i class="fas fa-sitemap"></i> Xem 22 Chi đoàn trực thuộc (1.028 ĐV)
+                    </button>
+                </div>
+
+                <div class="docs-table-wrapper">
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 15%;">Mã Biểu Mẫu</th>
+                                <th style="width: 40%;">Tên Văn Bản / Biểu Mẫu</th>
+                                <th style="width: 18%;">Chuyên Mục</th>
+                                <th style="width: 15%;">Định Dạng</th>
+                                <th style="width: 12%;">Tải Về</th>
+                            </tr>
+                        </thead>
+                        <tbody id="youth-docs-tbody">
+                            <!-- Nạp từ YOUTH_FORMS_AND_DOCS trong js/data.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+       MODAL 1: XEM CHI TIẾT BÀI VIẾT TIN TỨC
+       =================================================================== -->
+    <div class="modal-overlay" id="article-detail-modal" role="dialog" aria-modal="true" aria-labelledby="article-detail-title">
+        <div class="modal-content" style="max-width: 850px;">
+            <div class="modal-header">
+                <h3 id="article-detail-title"><i class="far fa-newspaper" style="color:var(--primary-blue);"></i> Bản Tin Hoạt Động Đoàn Xã</h3>
+                <button class="btn-modal-close" onclick="document.getElementById('article-detail-modal').classList.remove('active')" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="article-detail-modal-body" id="article-detail-content">
+                <!-- Nội dung bài viết được nạp động -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+       MODAL 2: ĐĂNG TẢI BÀI VIẾT MỚI (DÀNH CHO CÁN BỘ ĐOÀN)
+       =================================================================== -->
+    <div class="modal-overlay" id="post-news-modal" role="dialog" aria-modal="true" aria-labelledby="post-modal-title">
+        <div class="modal-content" style="max-width: 780px;">
+            <div class="modal-header">
+                <h3 id="post-modal-title"><i class="fas fa-feather-alt" style="color:var(--doan-orange);"></i> Đăng Bài Viết Mới Lên Cổng Thông Tin</h3>
+                <button class="btn-modal-close" id="btn-close-post-modal" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-post-news">
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="post-title" style="font-weight:700;"><i class="fas fa-heading"></i> Tiêu đề bài viết (*):</label>
+                        <input type="text" id="post-title" class="form-control" placeholder="Nhập tiêu đề tin tức nổi bật..." required>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="post-category" style="font-weight:700;"><i class="fas fa-tag"></i> Chuyên mục (*):</label>
+                            <select id="post-category" class="form-control" required>
+                                <option value="tinh-nguyen">Phong trào Tình nguyện</option>
+                                <option value="chuyen-doi-so">Tuổi trẻ Sáng tạo & Số hóa</option>
+                                <option value="an-ninh-so">Lá chắn số & Pháp luật</option>
+                                <option value="dong-hanh-lap-nghiep">Đồng hành Khởi nghiệp</option>
+                                <option value="truong-hoc">Khối Trường học</option>
+                                <option value="xa-que">Thanh niên Xa quê</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="post-author" style="font-weight:700;"><i class="fas fa-user-edit"></i> Tác giả / Nguồn tin:</label>
+                            <input type="text" id="post-author" class="form-control" placeholder="Ví dụ: Bí thư Đoàn xã / Chi đoàn Bản Mường Nưa" value="Đoàn xã Mường Lầm">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="post-thumb" style="font-weight:700;"><i class="fas fa-image"></i> Đường dẫn ảnh bìa (URL):</label>
+                        <input type="url" id="post-thumb" class="form-control" placeholder="Dán link ảnh hoặc để trống để dùng ảnh mặc định">
+                        <div class="image-quick-picks">
+                            <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Chọn nhanh ảnh Đoàn viên tình nguyện Tây Bắc:</span>
+                            <button type="button" class="btn-img-pick" data-target="post-thumb" data-url="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&auto=format&fit=crop&q=80">Tình nguyện áo xanh</button>
+                            <button type="button" class="btn-img-pick" data-target="post-thumb" data-url="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80">Chuyển đổi số & AI</button>
+                            <button type="button" class="btn-img-pick" data-target="post-thumb" data-url="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&auto=format&fit=crop&q=80">Giao lưu văn hóa bản làng</button>
+                            <button type="button" class="btn-img-pick" data-target="post-thumb" data-url="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=80">Thanh niên trường học</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="post-summary" style="font-weight:700;"><i class="fas fa-quote-left"></i> Đoạn tóm tắt mở đầu (Sapo):</label>
+                        <textarea id="post-summary" class="form-control" rows="2" placeholder="Tóm tắt 1-2 câu ngắn gọn về sự kiện..."></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1.2rem;">
+                        <label for="post-content" style="font-weight:700;"><i class="fas fa-align-left"></i> Nội dung chi tiết (*):</label>
+                        <textarea id="post-content" class="form-control" rows="6" placeholder="Soạn nội dung chi tiết bài viết..." required></textarea>
+                    </div>
+
+                    <!-- Tuỳ chọn Gắn nhãn Minh chứng Chấm điểm 2026 -->
+                    <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:0.9rem; margin-bottom:1.2rem;">
+                        <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--primary-blue); cursor:pointer;">
+                            <input type="checkbox" id="post-is-proof" style="width:18px; height:18px; accent-color:var(--primary-blue);">
+                            <span><i class="fas fa-clipboard-check"></i> Đăng kèm làm "Minh chứng Chấm điểm Công tác Đoàn 2026" (QĐ 05 Tỉnh đoàn)</span>
+                        </label>
+                        <p style="font-size:0.75rem; color:#64748b; margin:4px 0 0 26px;">
+                            Nếu tích chọn, bài viết sẽ được tự động hiển thị trong <strong>Bảng theo dõi Minh chứng 2026</strong> và sinh đường link độc lập gửi Tỉnh đoàn Sơn La.
+                        </p>
+
+                        <!-- Các trường thông tin minh chứng mở rộng -->
+                        <div id="proof-extended-fields" style="display:none; margin-top:0.8rem; border-top:1px dashed #cbd5e1; padding-top:0.8rem;">
+                            <div class="form-group" style="margin-bottom:0.8rem;">
+                                <label for="post-proof-criteria" style="font-weight:700; font-size:0.82rem;"><i class="fas fa-tag"></i> Chọn Tiêu chí / Nhóm giải pháp (*):</label>
+                                <select id="post-proof-criteria" class="form-control" style="font-size:0.82rem;">
+                                    <optgroup label="A. Điều kiện bắt buộc (QĐ 05)">
+                                        <option value="mc-tc-2-2">Tiêu chí 2.2: Ngày Chủ nhật xanh đồng loạt (4 đợt) (4.0 điểm)</option>
+                                        <option value="mc-tc-4-8-1">Tiêu chí 4.8.1: Giải pháp CNTT/chuyển đổi số tập hợp ĐVTN (>30%) (4.0 điểm)</option>
+                                        <option value="mc-tc-4-8-2-kt">Tiêu chí 4.8.2.a: Tiếp cận, hỗ trợ thanh niên khuyết tật, yếu thế (2.0 điểm)</option>
+                                        <option value="mc-tc-4-8-2-dt">Tiêu chí 4.8.2.b: Tiếp cận, tập hợp thanh niên DTTS, tín đồ tôn giáo (2.0 điểm)</option>
+                                        <option value="mc-tc-4-8-2-xq">Tiêu chí 4.8.2.c: Kết nối thanh niên đi làm ăn xa tại các KCN (2.0 điểm)</option>
+                                    </optgroup>
+                                    <optgroup label="B. Nhóm giải pháp chủ động định hướng">
+                                        <option value="mc-nhom-1">Nhóm 1: Tuyên truyền Nghị quyết Đại hội Đoàn các cấp (3.0 điểm)</option>
+                                        <option value="mc-nhom-2">Nhóm 2: Hành trình đến với các địa chỉ đỏ & giáo dục truyền thống (3.0 điểm)</option>
+                                        <option value="mc-nhom-3">Nhóm 3: Phong trào Tuổi trẻ sáng tạo & Ngân hàng ý tưởng (3.0 điểm)</option>
+                                        <option value="mc-nhom-4">Nhóm 4: Đồng hành thanh niên khởi nghiệp, OCOP bản địa (3.0 điểm)</option>
+                                        <option value="mc-nhom-5">Nhóm 5: Hoạt động tình nguyện an sinh xã hội & trẻ em khó khăn (3.0 điểm)</option>
+                                        <option value="mc-nhom-6">Nhóm 6: Tuyên truyền phòng chống tệ nạn, ma túy, ATGT vùng cao (3.0 điểm)</option>
+                                        <option value="mc-nhom-7">Nhóm 7: Nâng cao năng lực số & Dịch vụ công trực tuyến (3.0 điểm)</option>
+                                        <option value="mc-nhom-8">Nhóm 8: Xây dựng tổ chức Đoàn vững mạnh & phát triển Đảng (3.0 điểm)</option>
+                                        <option value="mc-nhom-10-11">Nhóm 10 & 11: Nâng cao năng lực tiếng Anh / Ngoại ngữ & hội nhập (3.0 điểm)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label for="post-proof-participants" style="font-weight:700; font-size:0.82rem;"><i class="fas fa-users"></i> Số lượng ĐVTN tham gia:</label>
+                                    <input type="text" id="post-proof-participants" class="form-control" placeholder="Ví dụ: 125 lượt ĐVTN">
+                                </div>
+                                <div class="form-group">
+                                    <label for="post-proof-rate" style="font-weight:700; font-size:0.82rem;"><i class="fas fa-percentage"></i> Tỷ lệ % tiếp cận / chỉ tiêu:</label>
+                                    <input type="text" id="post-proof-rate" class="form-control" placeholder="Ví dụ: Đạt 35% ĐVTN toàn xã">
+                                </div>
+                            </div>
+
+                            <div class="form-grid-2" style="margin-top:0.8rem;">
+                                <div class="form-group">
+                                    <label for="post-proof-kehoach" style="font-weight:700; font-size:0.82rem;"><i class="fas fa-file-pdf" style="color:#dc2626;"></i> Kế hoạch tổ chức (Số/Ngày):</label>
+                                    <input type="text" id="post-proof-kehoach" class="form-control" placeholder="Kế hoạch số ...-KH/ĐTN ngày ...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="post-proof-baocao" style="font-weight:700; font-size:0.82rem;"><i class="fas fa-stamp" style="color:#16a34a;"></i> Báo cáo kết quả Cấp ủy duyệt:</label>
+                                    <input type="text" id="post-proof-baocao" class="form-control" placeholder="Báo cáo số ...-BC/ĐTN có xác nhận">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:flex-end; gap:0.8rem;">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('post-news-modal').classList.remove('active')">Hủy bỏ</button>
+                        <button type="submit" class="btn-primary" style="background:var(--doan-orange); border:none;">
+                            <i class="fas fa-upload"></i> Đăng Tải Ngay
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+       MODAL 3: ĐĂNG KÝ THAM GIA CHIẾN DỊCH TÌNH NGUYỆN
+       =================================================================== -->
+    <div class="modal-overlay" id="volunteer-register-modal" role="dialog" aria-modal="true" aria-labelledby="vol-modal-title">
+        <div class="modal-content" style="max-width: 650px;">
+            <div class="modal-header">
+                <h3 id="vol-modal-title"><i class="fas fa-hands-helping" style="color:var(--primary-blue);"></i> Đăng Ký Chiến Dịch Tình Nguyện</h3>
+                <button class="btn-modal-close" id="btn-close-volunteer-modal" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
+                    Chiến dịch: <strong id="reg-campaign-name" style="color:var(--primary-blue);">Tên chiến dịch</strong>
+                </p>
+
+                <form id="form-register-volunteer">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="reg-fullname" style="font-weight:700;"><i class="fas fa-user"></i> Họ và tên (*):</label>
+                            <input type="text" id="reg-fullname" class="form-control" placeholder="Ví dụ: Cà Văn Thắng" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-birthday" style="font-weight:700;"><i class="far fa-calendar-alt"></i> Ngày sinh:</label>
+                            <input type="date" id="reg-birthday" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="reg-unit" style="font-weight:700;"><i class="fas fa-home"></i> Chi đoàn bản / Đơn vị (*):</label>
+                            <select id="reg-unit" class="form-control" required>
+                                <!-- Nạp tự động -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-phone" style="font-weight:700;"><i class="fas fa-phone"></i> Số điện thoại / Zalo (*):</label>
+                            <input type="tel" id="reg-phone" class="form-control" placeholder="Ví dụ: 035.xxx.xxxx" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1.2rem;">
+                        <label for="reg-note" style="font-weight:700;"><i class="fas fa-comment-dots"></i> Kỹ năng đóng góp / Ghi chú:</label>
+                        <textarea id="reg-note" class="form-control" rows="2" placeholder="Ví dụ: Có xe máy, biết sơ cứu, có khả năng chụp ảnh truyền thông..."></textarea>
+                    </div>
+
+                    <div style="display:flex; justify-content:flex-end; gap:0.8rem;">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('volunteer-register-modal').classList.remove('active')">Hủy</button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-check-circle"></i> Xác Nhận Đăng Ký
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+       MODAL 4: THẺ XÁC NHẬN ĐOÀN VIÊN TÌNH NGUYỆN ĐIỆN TỬ (E-BADGE)
+       =================================================================== -->
+    <div class="modal-overlay" id="ebadge-modal" role="dialog" aria-modal="true" aria-labelledby="badge-modal-title">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 id="badge-modal-title"><i class="fas fa-id-badge" style="color:var(--star-gold);"></i> Thẻ Đoàn Viên Tình Nguyện Điện Tử</h3>
+                <button class="btn-modal-close" onclick="document.getElementById('ebadge-modal').classList.remove('active')" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+                <div id="ebadge-card-render">
+                    <!-- Được sinh tự động bởi JavaScript -->
+                </div>
+                <div style="display:flex; justify-content:center; gap:0.8rem; margin-top:1.2rem;">
+                    <button class="btn-primary" onclick="printEBadge()">
+                        <i class="fas fa-print"></i> In / Lưu Thẻ Điện Tử
+                    </button>
+                    <button class="btn-secondary" onclick="document.getElementById('ebadge-modal').classList.remove('active')">
+                        Đóng lại
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+       MODAL 5: CƠ CẤU 15 BẢN, 01 ĐOÀN THPT VÀ 06 CHI ĐOÀN CƠ SỞ
+       =================================================================== -->
+    <div class="modal-overlay" id="village-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content" style="max-width: 850px;">
+            <div class="modal-header">
+                <h3 id="modal-title">
+                    <img src="assets/logo-doan.png" alt="Logo Đoàn" style="width: 22px; height: 22px; vertical-align: middle; margin-right: 6px;" loading="lazy">
+                    Cơ Cấu Tổ Chức & Danh Bạ 22 Chi Đoàn <span class="whitespace-nowrap">Xã Mường Lầm</span> (Khóa I: 2025 - 2030)
+                </h3>
+                <button class="btn-modal-close" id="btn-close-modal" aria-label="Đóng bảng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.2rem;">
+                    Hệ thống tổ chức Đoàn TNCS Hồ Chí Minh <span class="whitespace-nowrap">xã Mường Lầm</span> gồm: <strong>22 cơ sở Đoàn / Chi đoàn trực thuộc</strong> với <strong>1.028 đoàn viên</strong> đang sinh hoạt 
+                    (gồm <strong>15 Chi đoàn bản</strong>: 506 ĐV, <strong>05 Chi đoàn trường học</strong>: 512 ĐV và <strong>02 Chi đoàn cơ quan/LLVT</strong>: 10 ĐV).
+                </p>
+                <div id="village-cards-container">
+                    <!-- Nạp tự động từ js/app.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+       MODAL 6: XEM CHI TIẾT BÀI VIẾT MINH CHỨNG CHẤM ĐIỂM 2026
+       Bám sát Quyết định 05-QĐ/TĐTN & Công văn 18-CV/ĐTN
+       Người ký duyệt: TM. BAN CHẤP HÀNH ĐOÀN XÃ - BÍ THƯ LÒ MẠNH QUYỀN
+       =================================================================== -->
+    <div class="modal-overlay" id="proof-detail-modal" role="dialog" aria-modal="true" aria-labelledby="proof-detail-heading">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">
+                <h3 id="proof-detail-heading">
+                    <img src="assets/logo-doan.png" alt="Logo Đoàn" style="width: 22px; height: 22px; vertical-align: middle; margin-right: 6px;" loading="lazy">
+                    Hồ Sơ Minh Chứng Chấm Điểm Năm 2026
+                </h3>
+                <button class="btn-modal-close" onclick="document.getElementById('proof-detail-modal').classList.remove('active')" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="proof-detail-body">
+                <!-- Nội dung được nạp tự động bằng JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+       MODAL 7: XUẤT BÁO CÁO DANH MỤC ĐƯỜNG LINK MINH CHỨNG GỬI TỈNH ĐOÀN
+       =================================================================== -->
+    <div class="modal-overlay" id="export-proofs-modal" role="dialog" aria-modal="true" aria-labelledby="export-modal-title">
+        <div class="modal-content" style="max-width: 950px;">
+            <div class="modal-header">
+                <h3 id="export-modal-title">
+                    <i class="fas fa-file-export" style="color:var(--primary-blue);"></i> 
+                    Danh Mục Đường Link Minh Chứng Chấm Điểm 2026 (Gửi Tỉnh đoàn Sơn La)
+                </h3>
+                <button class="btn-modal-close" onclick="document.getElementById('export-proofs-modal').classList.remove('active')" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; margin-bottom:1rem;">
+                    <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">
+                        Toàn bộ 14 đường link minh chứng độc lập theo đúng quy chuẩn kiểm tra trực tuyến của Ban Thường vụ Tỉnh đoàn Sơn La.
+                    </p>
+                    <div style="display:flex; gap:0.6rem;">
+                        <button class="btn-primary" id="btn-copy-all-proof-links" style="background:var(--doan-orange); border:none; padding:0.45rem 0.9rem; font-size:0.82rem;">
+                            <i class="fas fa-copy"></i> Sao chép tất cả link (Gửi Zalo/Email)
+                        </button>
+                        <button class="btn-secondary" onclick="window.print()" style="padding:0.45rem 0.9rem; font-size:0.82rem;">
+                            <i class="fas fa-print"></i> In / Xuất PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="export-proofs-content" id="export-proofs-render">
+                    <!-- Được sinh tự động bởi JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+       MODAL 8: BỔ SUNG / CẬP NHẬT TÀI LIỆU SINH HOẠT CHI ĐOÀN THÁNG 12
+       Dành cho Cán bộ Đoàn xã Mường Lầm khi Tỉnh đoàn Sơn La ban hành
+       =================================================================== -->
+    <div class="modal-overlay" id="modal-upload-month12" role="dialog" aria-modal="true" aria-labelledby="upload-m12-title">
+        <div class="modal-content" style="max-width: 750px;">
+            <div class="modal-header">
+                <h3 id="upload-m12-title">
+                    <img src="assets/logo-doan.png" alt="Huy hiệu Đoàn" style="width:22px; height:22px; vertical-align:middle; margin-right:6px;" loading="lazy"> Cập Nhật Tài Liệu Sinh Hoạt Chi Đoàn Tháng 12/2026
+                </h3>
+                <button class="btn-modal-close" onclick="document.getElementById('modal-upload-month12').classList.remove('active')" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
+                    Dành cho Ban Thường vụ Đoàn xã Mường Lầm cập nhật văn bản định hướng, chỉ đạo chính thức từ Tỉnh đoàn Sơn La về công tác tổng kết năm 2026.
+                </p>
+
+                <form id="form-upload-month12">
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="m12-pass" style="font-weight:700;"><i class="fas fa-key"></i> Mật khẩu xác thực Cán bộ Đoàn (*):</label>
+                        <input type="password" id="m12-pass" class="form-control" placeholder="Nhập mã xác thực (Mã demo: muonglam2026)" required>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="m12-title" style="font-weight:700;"><i class="fas fa-heading"></i> Chủ đề sinh hoạt Tháng 12 (*):</label>
+                        <input type="text" id="m12-title" class="form-control" placeholder="Ví dụ: Tổng kết công tác Đoàn năm 2026 - Mừng Đảng quang vinh, mừng Xuân 2027" required>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="m12-tagline" style="font-weight:700;"><i class="fas fa-quote-left"></i> Khẩu hiệu / Định hướng hành động:</label>
+                        <input type="text" id="m12-tagline" class="form-control" placeholder="Ví dụ: Đánh giá xếp loại thi đua, phát động phong trào Tết vì người nghèo">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="m12-part1" style="font-weight:700;"><i class="fas fa-star" style="color:#eab308;"></i> Phần I: Học tập & làm theo tư tưởng Bác:</label>
+                        <textarea id="m12-part1" class="form-control" rows="2" placeholder="Chuyên đề học Bác về kiểm điểm, tự phê bình và phê bình..."></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="m12-agenda" style="font-weight:700;"><i class="fas fa-clipboard-list" style="color:#10b981;"></i> Khung kịch bản sinh hoạt chi đoàn mẫu (*):</label>
+                        <textarea id="m12-agenda" class="form-control" rows="5" placeholder="Nhập tiến trình 60 phút buổi họp chi đoàn tổng kết năm..." required></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1.2rem;">
+                        <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--primary-blue); cursor:pointer;">
+                            <input type="checkbox" id="m12-mark-official" style="width:18px; height:18px; accent-color:var(--primary-blue);">
+                            <span>Gắn nhãn: <strong>"Đã ban hành - Tài liệu chính thức Tỉnh đoàn Sơn La"</strong></span>
+                        </label>
+                    </div>
+
+                    <div style="display:flex; justify-content:flex-end; gap:0.8rem;">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('modal-upload-month12').classList.remove('active')">Hủy bỏ</button>
+                        <button type="submit" class="btn-primary" style="background:var(--primary-blue);">
+                            <i class="fas fa-save"></i> Lưu & Xuất Bản Ngay
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <!-- ===================================================================
+       MODAL 9: QUẢN LÝ DƯ LUẬN XÃ HỘI & TỔNG HỢP BÁO CÁO ĐỊNH KỲ
+       Dành cho Ban Thường vụ & Bí thư Đoàn TNCS Hồ Chí Minh xã Mường Lầm
+       =================================================================== -->
+    <div class="modal-overlay" id="modal-admin-opinion" role="dialog" aria-modal="true" aria-labelledby="modal-admin-opinion-title">
+        <div class="modal-content" style="max-width: 950px;">
+            <div class="modal-header">
+                <h3 id="modal-admin-opinion-title">
+                    <img src="assets/logo-doan.png" alt="Huy hiệu Đoàn" style="width:22px; height:22px; vertical-align:middle; margin-right:6px;" loading="lazy">
+                    Quản Lý Dư Luận Xã Hội & Tổng Hợp Báo Cáo Định Kỳ
+                </h3>
+                <button type="button" class="btn-modal-close" onclick="document.getElementById('modal-admin-opinion').classList.remove('active')" aria-label="Đóng"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- Khung xác thực mật khẩu Cán bộ Đoàn -->
+                <div id="admin-opinion-auth-box" style="padding:1.5rem; background:#f8fafc; border:1px solid #cbd5e1; border-radius:var(--radius-md); max-width:480px; margin:1rem auto; text-align:center;">
+                    <i class="fas fa-shield-alt" style="font-size:2.5rem; color:var(--primary-blue); margin-bottom:0.8rem; display:block;"></i>
+                    <h4 style="font-size:1.05rem; font-weight:800; color:var(--text-primary); margin-bottom:0.4rem;">Xác thực Quyền Quản trị Đoàn xã</h4>
+                    <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:1.1rem;">
+                        Nhập mã bảo mật dành riêng cho Ban Thường vụ Đoàn xã Mường Lầm để xem thông tin dư luận và các vụ việc tố giác:
+                    </p>
+                    <form id="form-auth-admin-opinion" style="display:flex; gap:0.5rem; justify-content:center;">
+                        <input type="password" id="admin-opinion-pass" class="form-opinion-control" style="max-width:240px;" placeholder="Mã bảo mật (Demo: muonglam2026)" required>
+                        <button type="submit" class="btn-primary" style="background:var(--primary-blue);"><i class="fas fa-key"></i> Xác thực</button>
+                    </form>
+                </div>
+
+                <!-- Bảng điều khiển quản trị sau khi xác thực thành công -->
+                <div id="admin-opinion-panel" style="display:none;">
+                    <!-- Thẻ tổng hợp số liệu trên đầu bảng -->
+                    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.8rem; margin-bottom:1.2rem;">
+                        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-md); padding:0.8rem; text-align:center;">
+                            <span style="font-size:0.75rem; font-weight:700; color:#1e40af;">TỔNG PHẢN ÁNH</span>
+                            <h3 id="stat-total-opinions" style="font-size:1.5rem; font-weight:800; color:#1d4ed8; margin:0.2rem 0 0 0;">5</h3>
+                        </div>
+                        <div style="background:#fee2e2; border:1px solid #fca5a5; border-radius:var(--radius-md); padding:0.8rem; text-align:center;">
+                            <span style="font-size:0.75rem; font-weight:700; color:#b91c1c;">VỤ VIỆC NÓNG / KHẨN CẤP</span>
+                            <h3 id="stat-urgent-opinions" style="font-size:1.5rem; font-weight:800; color:#dc2626; margin:0.2rem 0 0 0;">2</h3>
+                        </div>
+                        <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:var(--radius-md); padding:0.8rem; text-align:center;">
+                            <span style="font-size:0.75rem; font-weight:700; color:#b45309;">ĐÃ BÁO CÁO CẤP ỦY</span>
+                            <h3 id="stat-escalated-opinions" style="font-size:1.5rem; font-weight:800; color:#d97706; margin:0.2rem 0 0 0;">2</h3>
+                        </div>
+                        <div style="background:#dcfce7; border:1px solid #bbf7d0; border-radius:var(--radius-md); padding:0.8rem; text-align:center;">
+                            <span style="font-size:0.75rem; font-weight:700; color:#15803d;">ĐÃ GIẢI QUYẾT XONG</span>
+                            <h3 id="stat-resolved-opinions" style="font-size:1.5rem; font-weight:800; color:#16a34a; margin:0.2rem 0 0 0;">2</h3>
+                        </div>
+                    </div>
+
+                    <!-- Thanh công cụ lọc & xuất báo cáo -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; margin-bottom:1rem;">
+                        <div class="admin-opinion-filters" id="opinion-filter-buttons">
+                            <button type="button" class="filter-chip-btn active" data-filter="all">Tất cả (5)</button>
+                            <button type="button" class="filter-chip-btn chip-urgent" data-filter="urgent">⚠️ Vụ việc nóng (2)</button>
+                            <button type="button" class="filter-chip-btn" data-filter="escalated">Đã báo cáo Cấp ủy</button>
+                            <button type="button" class="filter-chip-btn" data-filter="resolved">Đã giải quyết</button>
+                        </div>
+
+                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                            <button type="button" class="btn-primary" id="btn-export-opinion-report-doc" style="background:#16a34a; font-size:0.82rem; padding:0.4rem 0.9rem;">
+                                <i class="fas fa-file-word"></i> Tổng hợp Báo cáo Định kỳ (.doc)
+                            </button>
+                            <button type="button" class="btn-secondary" id="btn-preview-opinion-report" style="font-size:0.82rem; padding:0.4rem 0.9rem;">
+                                <i class="fas fa-file-alt"></i> Xem Bản thảo Báo cáo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bảng danh sách các phản ánh từ nhân dân & ĐVTN -->
+                    <div class="data-table-responsive" style="max-height:420px; overflow-y:auto; border:1px solid #e2e8f0; border-radius:var(--radius-md);">
+                        <table class="data-table" style="width:100%; border-collapse:collapse; font-size:0.82rem;">
+                            <thead style="position:sticky; top:0; background:#f1f5f9; z-index:10;">
+                                <tr>
+                                    <th style="padding:8px 10px;">Mã phiếu</th>
+                                    <th style="padding:8px 10px;">Ngày</th>
+                                    <th style="padding:8px 10px;">Người gửi</th>
+                                    <th style="padding:8px 10px;">Địa bàn / Bản</th>
+                                    <th style="padding:8px 10px;">Nội dung phản ánh</th>
+                                    <th style="padding:8px 10px; text-align:center;">Mức độ</th>
+                                    <th style="padding:8px 10px; text-align:center;">Trạng thái</th>
+                                    <th style="padding:8px 10px; text-align:center;">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-admin-opinions-body">
+                                <!-- Nạp dữ liệu động từ data.js và localStorage -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Khung xem trước bản thảo báo cáo chuẩn thể thức Đoàn -->
+                    <div id="opinion-report-preview-box" style="display:none; margin-top:1.2rem; background:#ffffff; border:1px solid #cbd5e1; border-radius:var(--radius-md); padding:1.5rem; font-family:'Times New Roman', serif; font-size:13pt; line-height:1.5; color:#000;">
+                        <!-- Render động văn bản báo cáo -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CONTAINER THÔNG BÁO NỔI TOAST -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- ===================================================================
+       FOOTER CHUẨN MỰC CỔNG THÔNG TIN ĐIỆN TỬ ĐOÀN TNCS HỒ CHÍ MINH
+       =================================================================== -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-brand-title-wrap">
+                    <img src="assets/logo-doan.png" alt="Huy hiệu Đoàn TNCS Hồ Chí Minh" class="footer-logo-img object-cover" loading="lazy" onerror="handleImgError(this)">
+                    <h4>ĐOÀN TNCS HỒ CHÍ MINH <span class="whitespace-nowrap">XÃ MƯỜNG LẦM</span></h4>
+                </div>
+                <p>
+                    Cổng thông tin điện tử chính thức của Đoàn TNCS Hồ Chí Minh <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La. 
+                    Tiên phong ứng dụng công nghệ số và trí tuệ nhân tạo (AI) xây dựng quê hương bản Mường giàu đẹp, văn minh.
+                </p>
+                <div class="footer-hotline">
+                    <i class="fas fa-phone-alt"></i> Hotline Thường trực: 035.444.2054
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h5>Lối Tắt Nhanh</h5>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Trang chủ Cổng thông tin</a></li>
+                    <li><a href="#news-section"><i class="fas fa-chevron-right"></i> Tin tức & Hoạt động Đoàn</a></li>
+                    <li><a href="#campaigns-section"><i class="fas fa-chevron-right"></i> Đăng ký chiến dịch tình nguyện</a></li>
+                    <li><a href="#ai-training"><i class="fas fa-chevron-right"></i> Tập huấn kỹ năng AI cơ bản</a></li>
+                    <li><a href="#monthly-docs"><i class="fas fa-chevron-right"></i> Sổ tay sinh hoạt Chi đoàn (T1-T11)</a></li>
+                    <li><a href="#opinion-section"><i class="fas fa-chevron-right"></i> Dư luận xã hội & Hòm thư số</a></li>
+                    <li><a href="#about-section"><i class="fas fa-chevron-right"></i> Ban Chấp hành & Biểu mẫu Đoàn</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5>Địa Chỉ & Liên Hệ Chính Thức</h5>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Trụ sở: UBND <span class="whitespace-nowrap">xã Mường Lầm</span>, tỉnh Sơn La</li>
+                    <li><i class="fas fa-phone-alt"></i> Hotline Thường trực: <strong>035.444.2054</strong></li>
+                    <li><i class="fas fa-envelope"></i> Gmail: <strong>doanxamuonglam@gmail.com</strong></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100064651183971" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;"><i class="fab fa-facebook-square" style="color:#1877F2;"></i> Fanpage: <strong>ĐOÀN XÃ <span class="whitespace-nowrap">MƯỜNG LẦM</span></strong> <i class="fas fa-external-link-alt" style="font-size:0.72rem; opacity:0.75; margin-left:3px;"></i></a></li>
+                    <li><i class="fas fa-shield-alt"></i> Tiếp nhận phản ánh tin giả: 035.444.2054</li>
+                </ul>
+
+                <h5 style="margin-top:1.2rem;">Liên Kết Website Hữu Ích</h5>
+                <div class="footer-external-links">
+                    <a href="https://www.facebook.com/profile.php?id=100064651183971" target="_blank" rel="noopener noreferrer" class="ext-link-pill">
+                        <i class="fab fa-facebook-f"></i> Fanpage Đoàn xã
+                    </a>
+                    <a href="https://doanthanhnien.vn" target="_blank" rel="noopener noreferrer" class="ext-link-pill">
+                        <i class="fas fa-external-link-alt"></i> Trung ương Đoàn
+                    </a>
+                    <a href="http://tinhdoansonla.gov.vn" target="_blank" rel="noopener noreferrer" class="ext-link-pill">
+                        <i class="fas fa-external-link-alt"></i> Tỉnh đoàn Sơn La
+                    </a>
+                    <a href="https://dichvucong.gov.vn" target="_blank" rel="noopener noreferrer" class="ext-link-pill">
+                        <i class="fas fa-external-link-alt"></i> Cổng DVC Quốc gia
+                    </a>
+                    <a href="https://tienphong.vn" target="_blank" rel="noopener noreferrer" class="ext-link-pill">
+                        <i class="fas fa-external-link-alt"></i> Báo Tiền Phong
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>
+                © 2026 Bản quyền thuộc về BAN CHẤP HÀNH ĐOÀN TNCS HỒ CHÍ MINH <span class="whitespace-nowrap">XÃ MƯỜNG LẦM</span>, TỈNH SƠN LA. <br>
+                Cổng thông tin điện tử xây dựng trên nền tảng web tĩnh hiện đại, tối ưu 100% cho mạng di động vùng cao.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Nạp dữ liệu và kịch bản ứng dụng -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
